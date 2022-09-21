@@ -1,4 +1,5 @@
-namespace API;
+using Domain;
+namespace Domain;
 
 public class WeatherForecast
 {
