@@ -36,5 +36,28 @@ namespace API.Controllers {
 
             return Ok(post);
         }
+
+        [HttpGet(Name = "Create")]
+
+        public ActionResult<Post> Create([FromBody]Post request)
+        {
+            var post = new Post
+            {
+                Id = request.Id,
+                Title = request.Title,
+                Body = request.Body,
+                Date = request.Date
+            };
+
+            context.Posts.Add(post);
+            var success = context.SaveChanges() > 0;
+
+            if (success)
+            {
+                return Ok(post);
+            }
+
+            throw new Exception("Error creating post");
+        }
     }
 }
