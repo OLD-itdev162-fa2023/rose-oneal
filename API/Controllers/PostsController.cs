@@ -62,7 +62,8 @@ namespace API.Controllers {
 
         [HttpPut(Name = "Update")]
 
-        public ActionResult<Post> Update([FromBody]Post request){
+        public ActionResult<Post> Update([FromBody]Post request)
+        {
             var post = context.Posts.Find(request.Id);
             if (post == null)
             {
